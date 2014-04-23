@@ -1,4 +1,4 @@
-import os, subprocess, time
+import os, subprocess
 
 class MinecraftServer:
     """Encapsulates a running Minecraft server"""
