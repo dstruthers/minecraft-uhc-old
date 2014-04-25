@@ -47,10 +47,10 @@ def parse(handle):
             return struct.unpack('>d', handle.read(8))[0]
         elif cls == NBTByteArray:
             num_bytes = parse_payload(NBTInt, handle)
-            bytes = []
+            b = []
             for i in range(0, num_bytes):
-                bytes.append(struct.unpack('>b', handle.read(1))[0])
-            return bytes
+                b.append(struct.unpack('>b', handle.read(1))[0])
+            return b
         elif cls == NBTString:
             # WARNING: Not Unicode aware!
             length = parse_payload(NBTShort, handle)
@@ -117,7 +117,7 @@ class NBTByteArray(NBTMultiValueBase): pass
 class NBTCompound(NBTMultiValueBase): pass
 class NBTIntArray(NBTMultiValueBase): pass
 class NBTList:
-    def __init__(self, name, type, elements):
+    def __init__(self, name, cls, elements):
         self.name = name
-        self.type = type
+        self.class_name = cls
         self.elements = elements
