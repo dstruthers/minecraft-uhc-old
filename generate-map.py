@@ -1,6 +1,6 @@
 import math, time
 from argparse import ArgumentParser
-from mc import MinecraftServer
+from mc.server import MinecraftServer
 
 def log(msg):
     """Log msg to stdout"""
